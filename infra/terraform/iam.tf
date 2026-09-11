@@ -33,7 +33,7 @@ resource "aws_iam_role" "github_actions_role" {
             "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
           }
         StringLike = {
-            "token.actions.githubusercontent.com:sub" = "repo:BIONICLE0/api-demo:ref:refs/heads/main"
+            "token.actions.githubusercontent.com:sub" = "repo:BIONICLE0@130194538/api-demo@1366634138:ref:refs/heads/main"
           }
         }
       }
