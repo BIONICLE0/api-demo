@@ -121,12 +121,12 @@ jobs:
         run: |
           docker tag \
             docker-image:${{ github.sha }} \
-            ${{ steps.login-ecr.outputs.registry }}/docker-image:${{ github.sha }}
+            ${{ steps.login-ecr.outputs.registry }}/todo-api:${{ github.sha }}
 
       - name: Push to ECR
         run: |
           docker push \
-            ${{ steps.login-ecr.outputs.registry }}/docker-image:${{ github.sha }}
+            ${{ steps.login-ecr.outputs.registry }}/todo-api:${{ github.sha }}
 
       # -------------------------
       # Lambda
@@ -136,7 +136,7 @@ jobs:
         run: |
           aws lambda update-function-code \
             --function-name todo-api \
-            --image-uri ${{ steps.login-ecr.outputs.registry }}/docker-image:${{ github.sha }}
+            --image-uri ${{ steps.login-ecr.outputs.registry }}/todo-api:${{ github.sha }}
 
       - name: Wait for Lambda update
         run: |
