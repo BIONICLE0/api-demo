@@ -21,3 +21,7 @@ output "cognito_user_pool_id" {
 output "cognito_client_id" {
   value = aws_cognito_user_pool_client.todo.id
 }
+
+output "github_role_arn" {
+  value = aws_iam_role.github_actions_role.arn
+}
