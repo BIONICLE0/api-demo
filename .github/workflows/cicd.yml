@@ -13,8 +13,6 @@ jobs:
       contents: read
 
     env:
-      AWS_ACCESS_KEY_ID: dummy
-      AWS_SECRET_ACCESS_KEY: dummy
       AWS_DEFAULT_REGION: ap-northeast-1
       SPRING_PROFILES_ACTIVE: github-actions
 
@@ -35,7 +33,7 @@ jobs:
       # DynamoDB Local
       # -------------------------
 
-      - name: Start DynamoDB Local
+      - name: Start DynamoDB Local]
         run: |
           docker run -d \
             --name dynamodb \
@@ -62,6 +60,9 @@ jobs:
       # -------------------------
 
       - name: Create DynamoDB table
+        env:
+          AWS_ACCESS_KEY_ID: dummy
+          AWS_SECRET_ACCESS_KEY: dummy
         run: |
           aws dynamodb create-table \
             --table-name Todos \
@@ -74,6 +75,9 @@ jobs:
             --region ap-northeast-1
 
       - name: Check DynamoDB table
+        env:
+          AWS_ACCESS_KEY_ID: dummy
+          AWS_SECRET_ACCESS_KEY: dummy
         run: |
           aws dynamodb list-tables \
             --endpoint-url http://localhost:8000 \
