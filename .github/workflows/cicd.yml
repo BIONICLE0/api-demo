@@ -79,7 +79,7 @@ jobs:
       - name: Build JAR
         run: ./mvnw clean package
         env:
-          SPRING_PROFILES_ACTIVE: test
+          SPRING_PROFILES_ACTIVE: local
 
       # -------------------------
       # AWS OIDC
