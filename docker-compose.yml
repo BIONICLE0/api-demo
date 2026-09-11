@@ -1,0 +1,18 @@
+services:
+
+  backend:
+    image: maven:3.9-eclipse-temurin-17
+    container_name: api-demo-backend
+    volumes:
+      - ./backend:/workspace
+    working_dir: /workspace/demo
+    command: mvn spring-boot:run
+    ports:
+      - "8080:8080"
+
+  dynamodb:
+    image: amazon/dynamodb-local
+    container_name: api-demo-dynamodb
+    command: "-jar DynamoDBLocal.jar -sharedDb -inMemory"
+    ports:
+      - "8000:8000"
