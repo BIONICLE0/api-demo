@@ -19,7 +19,7 @@ public class DynamoDbConfig {
     public DynamoDbClient localDynamoDbClient() {
         return DynamoDbClient.builder()
                 .endpointOverride(
-                        URI.create("http://dynamodb:8000")
+                        URI.create("http://localhost:8000")
                 )
                 .region(Region.AP_NORTHEAST_1)
                 .credentialsProvider(
