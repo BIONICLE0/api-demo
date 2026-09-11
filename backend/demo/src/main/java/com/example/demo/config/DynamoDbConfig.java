@@ -19,6 +19,22 @@ public class DynamoDbConfig {
     public DynamoDbClient localDynamoDbClient() {
         return DynamoDbClient.builder()
                 .endpointOverride(
+                        URI.create("http://dynamodb:8000")
+                )
+                .region(Region.AP_NORTHEAST_1)
+                .credentialsProvider(
+                        StaticCredentialsProvider.create(
+                                AwsBasicCredentials.create("dummy", "dummy")
+                        )
+                )
+                .build();
+    }
+
+    @Bean
+    @Profile("github-actions")
+    public DynamoDbClient githubActionsDynamoDbClient() {
+        return DynamoDbClient.builder()
+                .endpointOverride(
                         URI.create("http://localhost:8000")
                 )
                 .region(Region.AP_NORTHEAST_1)
