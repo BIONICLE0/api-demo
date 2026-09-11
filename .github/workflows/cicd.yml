@@ -97,7 +97,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          # role-to-assume: ${{ secrets.AWS_ROLE_ARN }} 
+          role-to-assume: arn:aws:iam::992382546260:role/github-actions-ecr-role
           aws-region: ap-northeast-1
 
       # -------------------------
