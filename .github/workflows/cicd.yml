@@ -72,14 +72,18 @@ jobs:
             --endpoint-url http://localhost:8000 \
             --region ap-northeast-1
 
+      - name: Check DynamoDB table
+        run: |
+          aws dynamodb list-tables \
+            --endpoint-url http://localhost:8000 \
+            --region ap-northeast-1
+
       # -------------------------
       # Test
       # -------------------------
 
       - name: Build JAR
         run: ./mvnw clean package
-        env:
-          SPRING_PROFILES_ACTIVE: local
 
       # -------------------------
       # AWS OIDC
