@@ -27,3 +27,27 @@ resource "aws_cognito_user_pool_client" "todo" {
     "ALLOW_REFRESH_TOKEN_AUTH"
   ]
 }
+
+############################
+# Cognito Resource Server
+############################
+resource "aws_cognito_resource_server" "todo" {
+  identifier   = "todo-api"
+  name         = "Todo API"
+  user_pool_id = aws_cognito_user_pool.todo.id
+
+  scope {
+    scope_name        = "read"
+    scope_description = "Read todos"
+  }
+
+  scope {
+    scope_name        = "write"
+    scope_description = "Create and update todos"
+  }
+
+  scope {
+    scope_name        = "delete"
+    scope_description = "Delete todos"
+  }
+}

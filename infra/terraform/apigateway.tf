@@ -33,6 +33,10 @@ resource "aws_apigatewayv2_route" "get_todos" {
 
   authorization_type = "JWT"
   authorizer_id      = aws_apigatewayv2_authorizer.cognito.id
+
+  authorization_scopes = [
+    "todo-api/read"
+  ]
 }
 
 resource "aws_apigatewayv2_route" "post_todos" {
@@ -42,6 +46,10 @@ resource "aws_apigatewayv2_route" "post_todos" {
 
   authorization_type = "JWT"
   authorizer_id      = aws_apigatewayv2_authorizer.cognito.id
+
+  authorization_scopes = [
+    "todo-api/write"
+  ]
 }
 
 resource "aws_apigatewayv2_route" "get_todo" {
@@ -51,6 +59,10 @@ resource "aws_apigatewayv2_route" "get_todo" {
 
   authorization_type = "JWT"
   authorizer_id      = aws_apigatewayv2_authorizer.cognito.id
+
+  authorization_scopes = [
+    "todo-api/read"
+  ]
 }
 
 resource "aws_apigatewayv2_route" "put_todo" {
@@ -60,6 +72,10 @@ resource "aws_apigatewayv2_route" "put_todo" {
 
   authorization_type = "JWT"
   authorizer_id      = aws_apigatewayv2_authorizer.cognito.id
+
+  authorization_scopes = [
+    "todo-api/write"
+  ]
 }
 
 resource "aws_apigatewayv2_route" "delete_todo" {
@@ -69,6 +85,10 @@ resource "aws_apigatewayv2_route" "delete_todo" {
 
   authorization_type = "JWT"
   authorizer_id      = aws_apigatewayv2_authorizer.cognito.id
+  
+  authorization_scopes = [
+    "todo-api/delete"
+  ]
 }
 
 resource "aws_lambda_permission" "api_gateway" {
