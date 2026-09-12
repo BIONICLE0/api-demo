@@ -85,7 +85,7 @@ resource "aws_apigatewayv2_route" "delete_todo" {
 
   authorization_type = "JWT"
   authorizer_id      = aws_apigatewayv2_authorizer.cognito.id
-  
+
   authorization_scopes = [
     "todo-api/delete"
   ]
