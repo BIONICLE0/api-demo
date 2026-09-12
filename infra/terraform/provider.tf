@@ -7,7 +7,7 @@ terraform {
   }
 }
 
-provider "aws" {
-  profile = "hirotake-sso"
-  region  = "ap-northeast-1"
-}
+# provider "aws" {
+#   profile = "hirotake-sso"
+#   region  = "ap-northeast-1"
+# }
