@@ -48,3 +48,11 @@ resource "aws_iam_role_policy_attachment" "ecr" {
   role       = aws_iam_role.github_actions_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"
 }
+
+############################
+# IAM Policy（Lambda更新用）
+############################
+resource "aws_iam_role_policy_attachment" "lambda" {
+  role       = aws_iam_role.github_actions_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AWSLambda_FullAccess"
+}
