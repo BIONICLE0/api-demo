@@ -25,3 +25,7 @@ output "cognito_client_id" {
 output "github_role_arn" {
   value = aws_iam_role.github_actions_role.arn
 }
+
+output "terraform_role" {
+  value = aws_iam_role.terraform_role.arn
+}
